@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>solitude4EVER 的个人空间</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Background -->
+  <div class="background"></div>
+
+  <!-- Header -->
+  <header class="main-header">
+    <h1>solitude4EVER 的个人空间</h1>
+    <p>你好，陌生的访客，愿我们来日方长。</p>
+  </header>
+
+  <!-- Scroll Down Button -->
+  <div class="scroll-down" onclick="scrollToPosition()">
+    ▼
+  </div>
+
+  <!-- Top Right About -->
+  <div class="top-right">
+    <span class="about-label" onclick="About()" title="GitHub Main Page">Main Page</span>
+    <img class="personal-icon" src="test_image2.png">
+  </div>
+  <div class="menu-button" onclick="toggleSidePanel()">☰</div>
+
+  <!-- Side Panel -->
+  <div class="side-panel" id="sidePanel">
+    <div class="side-spacer"></div>
+    <div class="side-section">
+      <div class="side-title" onclick="toggleList('dateList')">Dates</div>
+      <ul id="dateList" class="hidden-list">
+        <li onclick="filterPosts({date: '2025-09'})">2025-09</li>
+        <li onclick="filterPosts({date: '2025-08'})">2025-08</li>
+      </ul>
+    </div>
+    <div class="side-section">
+      <div class="side-title" onclick="toggleList('tagList')">Tags</div>
+      <ul id="tagList" class="hidden-list">
+        <li onclick="filterPosts({tag: '个人'})">#个人</li>
+        <li onclick="filterPosts({tag: '物理学'})">#物理学</li>
+        <li onclick="filterPosts({tag: '宇宙学'})">#宇宙学</li>
+        <li onclick="filterPosts({tag: '动漫'})">#动漫</li>
+        <li onclick="filterPosts({tag: '绘画'})">#绘画</li>
+        <li onclick="filterPosts({tag: '哲学'})">#哲学</li>
+        <li onclick="filterPosts({tag: '???'})">#???</li>
+      </ul>
+    </div>
+    <div class="side-section">
+      <div class="side-title" onclick="filterPosts({})">Reset</div>
+    </div>
+  </div>
+
+  <!-- Main Content Panel -->
+  <div class="content-panel hidden">
+    <div class="post" data-date="2025-09" data-tags="宇宙学,物理学,哲学">
+      <h2>3氦过程（Triple-alpha process）与微调宇宙的可能性</h2>
+      <p class="meta">🕑2025-09-20 19:20 &nbsp;&nbsp; #宇宙学 #物理学 #哲学</p>
+      <p class="preview">3氦过程是一个透过核聚变将三颗氦-4核变为碳核的过程，碳是已知生物中必要......</p>
+    </div>
+    <div class="post" data-date="2025-08" data-tags="个人">
+      <h2>Introduction</h2>
+      <p class="meta">🕑2025-08-29 14:30 &nbsp;&nbsp; #个人</p>
+      <p class="preview">Hi there this is solitude4EVER.</p>
+    </div>
+    <div class="post" data-date="2025-08" data-tags="???">
+      <h2>This is a test post</h2>
+      <p class="meta">🕑2025-08-03 17:00 &nbsp;&nbsp; #???</p>
+      <p class="preview">Lorem ipsum dolor sit amet, consectetur
+         adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div class="post" data-date="2025-08" data-tags="???">
+      <h2>This is a test post</h2>
+      <p class="meta">🕑2025-08-03 17:00 &nbsp;&nbsp; #???</p>
+      <p class="preview">Lorem ipsum dolor sit amet, consectetur
+         adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div class="post" data-date="2025-08" data-tags="???">
+      <h2>This is a test post</h2>
+      <p class="meta">🕑2025-08-03 17:00 &nbsp;&nbsp; #???</p>
+      <p class="preview">Lorem ipsum dolor sit amet, consectetur
+         adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div class="post" data-date="2025-08" data-tags="???">
+      <h2>This is a test post</h2>
+      <p class="meta">🕑2025-08-03 17:00 &nbsp;&nbsp; #???</p>
+      <p class="preview">Lorem ipsum dolor sit amet, consectetur
+         adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    
+    <!-- Add more posts here -->
+  </div>
+
+  
+  <script>    
+    // if ('scrollRestoration' in history) {
+    //   history.scrollRestoration = 'manual';
+    //   window.scrollTo(0, 0);
+    // }
+    
+    function scrollToPosition() {
+        window.scrollTo({
+          top: window.innerHeight * 0.5,
+          behavior: 'smooth'
+        });
+      }
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const header = document.querySelector('.main-header');
+
+      // Move up and fade out slowly
+      const translateY = Math.min(scrollY * 0.5, 100); // limit upward movement
+      const opacity = Math.max(1 - scrollY / 230, 0);   // fade out
+
+      header.style.transform = `translate(-50%, calc(-50% - ${translateY}px))`;
+      header.style.opacity = opacity;
+    });
+
+    window.addEventListener('scroll', function() {
+      const scrollButton = document.querySelector('.scroll-down');
+      if (window.scrollY > 230) {
+        scrollButton.style.opacity = 0;
+      }
+      else {
+        scrollButton.style.opacity = 0.75;
+      }
+    });
+
+    function About() {
+        window.location.href = 'https://github.com/solitude4EVER';
+    };
+
+    // content panel    
+    const showAfter = 250; // pixels
+
+    window.addEventListener('scroll', function() {
+      const panel = document.querySelector('.content-panel');
+      if (window.scrollY > showAfter) {
+        panel.style.opacity = (window.scrollY-showAfter/50);
+      }
+      else if (window.scrollY > showAfter+50) {
+        panel.style.opacity = 1;
+      }
+      else {
+        panel.style.opacity = 0;
+      }
+    });
+
+
+    function toggleSidePanel() {
+      const panel = document.getElementById('sidePanel');
+      panel.classList.toggle('open');
+    }
+
+    document.addEventListener('click', function(event) {
+      const panel = document.getElementById('sidePanel');
+      const button = document.querySelector('.menu-button');
+
+      if (panel.classList.contains('open') &&
+          !panel.contains(event.target) &&
+          !button.contains(event.target)) {
+        panel.classList.remove('open');
+      }
+    });
+    
+    function toggleList(id) {
+      document.getElementById(id).classList.toggle('visible');
+    }
+
+  
+    function filterPosts({date = null, tag = null}) {
+      const posts = document.querySelectorAll('.post');
+      posts.forEach(post => {
+        const postDate = post.getAttribute('data-date');
+        const postTags = post.getAttribute('data-tags').split(',');
+
+        let show = true;
+        if (date && !postDate.startsWith(date)) show = false;
+        if (tag && !postTags.includes(tag)) show = false;
+
+        post.style.display = show ? '' : 'none';
+      });
+      window.scrollTo({
+          top: window.innerHeight * 0.5,
+          behavior: 'smooth'
+      });
+    }
+
+
+  </script>
+
+</body>
+
+</html>
