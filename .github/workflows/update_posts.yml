@@ -32,3 +32,12 @@ jobs:
 
       - name: Run add_posts.py
         run: python add_posts.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add index.html
+          git commit -m "Update index.html with new posts"
+          git push
+
