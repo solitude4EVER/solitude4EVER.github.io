@@ -1,98 +1,104 @@
 <!DOCTYPE html>
+
 <html lang="zh">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>solitude4EVER 的个人空间</title>
-  <link rel="stylesheet" href="./assets/css/style.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>solitude4EVER 的个人空间</title>
+<link href="./assets/css/style.css" rel="stylesheet"/>
 </head>
 <body>
-  <!-- Background -->
-  <div class="background"></div>
-
-  <!-- Header -->
-  <header class="main-header">
-    <h1>solitude4EVER 的个人空间</h1>
-    <p><i>海纳百川，有容乃大</i></p>
-  </header>
-
-  <!-- Scroll Down Button -->
-  <div class="scroll-down" onclick="scrollToPosition()">
+<!-- Background -->
+<div class="background"></div>
+<!-- Header -->
+<header class="main-header">
+<h1>solitude4EVER 的个人空间</h1>
+<p><i>海纳百川，有容乃大</i></p>
+</header>
+<!-- Scroll Down Button -->
+<div class="scroll-down" onclick="scrollToPosition()">
     ▼
   </div>
+<!-- Top Right About -->
+<div class="top-right">
+<div class="github-icon">
+<a href="https://github.com/solitude4EVER">
+<img alt="GitHub" class="github-img" src="./assets/images/github-mark/github-mark-white.svg"/>
+</a>
+</div>
+<!-- <span class="about-label" onclick="GitHub()" title="GitHub Main Page">GitHub</span> -->
+<img class="personal-icon" src="./assets/images/test_image2.png"/>
+</div>
+<div class="menu-button" onclick="toggleSidePanel()">☰</div>
+<!-- Personal Info -->
+<div class="personal-info">
+<img class="personal-icon-large" src="./assets/images/test_image2.png"/>
+<p class="personal-info-text">Do you like my profile picture?</p>
+<p class="personal-info-text">Elysian/solitude4EVER</p>
+<p class="personal-info-text">A hobbyist in everything.<br/>Welcome to my blog.</p>
+</div>
+<!-- Side Panel -->
+<div class="side-panel" id="sidePanel">
+<div class="side-spacer"></div>
+<div class="side-section">
+<div class="side-title" onclick="toggleList('dateList')">Dates</div>
+<ul class="hidden-list" id="dateList">
+<li onclick="filterPosts({date: '2025-09'})">2025-09</li>
+<li onclick="filterPosts({date: '2025-08'})">2025-08</li>
+</ul>
+</div>
+<div class="side-section">
+<div class="side-title" onclick="toggleList('tagList')">Tags</div>
+<ul class="hidden-list" id="tagList">
+<li onclick="filterPosts({tag: '个人'})">#个人</li>
+<li onclick="filterPosts({tag: '日常'})">#日常</li>
+<li onclick="filterPosts({tag: '???'})">#???</li>
+<li onclick="filterPosts({tag: '语录'})">#语录</li></ul>
+</div>
+<div class="side-section">
+<div class="side-title" onclick="filterPosts({})">Reset</div>
+</div>
+</div>
+<!-- Main Content Panel -->
+<div class="content-panel">
 
-  <!-- Top Right About -->
-  <div class="top-right">
-    <div class="github-icon">
-    <a href="https://github.com/solitude4EVER">
-        <img src="./assets/images/github-mark/github-mark-white.svg" alt="GitHub" class="github-img">
-    </a>
-    </div>
-    <!-- <span class="about-label" onclick="GitHub()" title="GitHub Main Page">GitHub</span> -->
-    <img class="personal-icon" src="./assets/images/test_image2.png">
-  </div>
-  <div class="menu-button" onclick="toggleSidePanel()">☰</div>
 
-  <!-- Personal Info -->
-  <div class="personal-info">
-    <img class="personal-icon-large" src="./assets/images/test_image2.png">
-     <p class="personal-info-text">Do you like my profile picture?</p>
-     <p class="personal-info-text">Elysian/solitude4EVER</p>
-     <p class="personal-info-text">A hobbyist in everything.<br>Welcome to my blog.</p>
-  </div>
-
-
-  <!-- Side Panel -->
-  <div class="side-panel" id="sidePanel">
-    <div class="side-spacer"></div>
-    <div class="side-section">
-      <div class="side-title" onclick="toggleList('dateList')">Dates</div>
-      <ul id="dateList" class="hidden-list">
-        <li onclick="filterPosts({date: '2025-09'})">2025-09</li>
-        <li onclick="filterPosts({date: '2025-08'})">2025-08</li>
-      </ul>
-    </div>
-    <div class="side-section">
-      <div class="side-title" onclick="toggleList('tagList')">Tags</div>
-      <ul id="tagList" class="hidden-list">
-        <li onclick="filterPosts({tag: '个人'})">#个人</li>
-        <li onclick="filterPosts({tag: '日常'})">#日常</li>
-        <li onclick="filterPosts({tag: '???'})">#???</li>
-      </ul>
-    </div>
-    <div class="side-section">
-      <div class="side-title" onclick="filterPosts({})">Reset</div>
-    </div>
-  </div>
-
-  <!-- Main Content Panel -->
-  <div class="content-panel">
-
-    <div class="post" data-date="2025-08" data-tags="个人">
-      <h2>自我介绍&nbsp;&nbsp;Introduction</h2>
-      <p class="meta">
-        <img src="./assets/images/clock-three-svgrepo-com.svg" alt="Clock" class="clock-icon">
-        2025-08-29 14:30 &nbsp;&nbsp; #个人</p>
-      <p class="preview">Hi there this is solitude4EVER <span style="font-size: 0.8em;">a.k.a. Elysian.</span><br>
-      This is my personal website for sh!tposts. ☝️🤓<br><br>
-      技术力有限，此为静态网页，无法进行点赞或评论等互动。<br>
+<div class="post" data-date="2025-09" data-tags="日常">
+<h2>no title</h2>
+<p class="meta">
+<img alt="Clock" class="clock-icon" src="./assets/images/clock-three-svgrepo-com.svg"/>
+2025-09-26 23:56    #日常</p>
+<p class="preview">Omg the website's owner is so dumb that she has to modify the html every time she makes a post.</p>
+</div>
+<div class="post" data-date="2025-09" data-tags="语录">
+<h2>机会</h2>
+<p class="meta">
+<img alt="Clock" class="clock-icon" src="./assets/images/clock-three-svgrepo-com.svg"/>
+2025-09-25 21:21    #语录</p>
+<p class="preview">弱者等待时机；强者创造时机；智者等待时机</p>
+</div>
+<div class="post" data-date="2025-08" data-tags="个人">
+<h2>自我介绍  Introduction</h2>
+<p class="meta">
+<img alt="Clock" class="clock-icon" src="./assets/images/clock-three-svgrepo-com.svg"/>
+        2025-08-29 14:30    #个人</p>
+<p class="preview">Hi there this is solitude4EVER <span style="font-size: 0.8em;">a.k.a. Elysian.</span><br/>
+      This is my personal website for sh!tposts. ☝️🤓<br/><br/>
+      技术力有限，此为静态网页，无法进行点赞或评论等互动。<br/>
       The website's author is noob therefore did not add interactive functions.
       </p>
-    </div>
-    <div class="post" data-date="2025-08" data-tags="???">
-      <h2>This is a test post</h2>
-      <p class="meta">
-        <img src="./assets/images/clock-three-svgrepo-com.svg" alt="Clock" class="clock-icon">
-        2025-08-03 17:00 &nbsp;&nbsp; #???</p>
-      <p class="preview">Lorem ipsum dolor sit amet, consectetur
+</div>
+<div class="post" data-date="2025-08" data-tags="???">
+<h2>This is a test post</h2>
+<p class="meta">
+<img alt="Clock" class="clock-icon" src="./assets/images/clock-three-svgrepo-com.svg"/>
+        2025-08-03 17:00    #???</p>
+<p class="preview">Lorem ipsum dolor sit amet, consectetur
          adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    </div>
-    
-    <!-- Add more posts here -->
-  </div>
-
-  
-  <script>    
+</div>
+<!-- Add more posts here -->
+</div>
+<script>    
     // if ('scrollRestoration' in history) {
     //   history.scrollRestoration = 'manual';
     //   window.scrollTo(0, 0);
@@ -198,7 +204,5 @@
 
 
   </script>
-
 </body>
-
 </html>
