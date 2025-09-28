@@ -261,6 +261,14 @@ body, html {
   margin: 10px 0 0 0;
 }
 
+.post-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 10px 0;
+}
+
+
 .meta {
   color: gray;
 }
